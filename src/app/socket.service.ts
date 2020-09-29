@@ -7,7 +7,7 @@ export class SocketService {
     private listener: EventEmitter<any> = new EventEmitter();
 
     public constructor() {
-        this.socket = new WebSocket("ws://"+"servego.herokuapp.com"+'/ws');
+        this.socket = new WebSocket("wss://"+"servego.herokuapp.com"+'/ws');
         this.socket.onmessage = event => {
             this.listener.emit({"type": "message", "data": JSON.parse(event.data)});
         }
