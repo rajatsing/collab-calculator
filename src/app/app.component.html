@@ -1,5 +1,5 @@
 <ul id="messages">
-  <li *ngFor="let message of (messages|slice:messages.length-10);">
+  <li *ngFor="let message of messages | slice: (messages.length > 10 ? messages.length - 10 : 0);">
       <span  id="actualMessage" [innerHTML]="isSystemMessage(message)"></span>
   </li>
 </ul>
